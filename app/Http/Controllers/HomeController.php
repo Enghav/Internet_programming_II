@@ -76,7 +76,6 @@ class HomeController extends BaseController
         $fileName = time() . '-' . $originalName;
 
         Storage::disk('minio')->put($fileName, $image);
-
         return response()->json(['message' => 'Image uploaded successfully!', 'url' => Storage::disk('minio')->url($fileName)]);
     }
 }
